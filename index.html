@@ -120,6 +120,14 @@
     #mx td:first-child { min-width: 190px; }
     code { font-family: ui-monospace, Menlo, monospace; font-size: 0.88em; }
 
+
+    /* polish: aligned inputs, chart label halo, next-step link */
+    .inputs, .adv { align-items: end; }
+    #chart .cap { paint-order: stroke; stroke: var(--paper-raised); stroke-width: 4px; stroke-linejoin: round; }
+    .next-step { border: 1px solid var(--rule); border-left: 4px solid var(--ink); background: var(--paper-raised); padding: 14px 16px; margin: 24px 0 0; }
+    .next-step .k { color: var(--ink-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+    .next-step a { font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; text-transform: lowercase; }
+    .next-step p { margin: 4px 0 0; color: var(--ink-muted); font-size: 0.92rem; }
   </style>
 </head>
 <body>
@@ -133,23 +141,23 @@
     <section class="panel">
       <h2>1. Write the survey</h2>
       <p class="hint" style="margin-top:0">A category entry point (CEP) is a situation, need or feeling that sends someone looking in the category. Ask category buyers, for each one: "When you are in this situation, which brands come to mind?" Let them pick any number.</p>
-      <div class="inputs"><label class="field">Category<input type="text" id="cat" maxlength="50"></label></div>
+      <div class="inputs"><label class="field">Category<input autocomplete="off" type="text" id="cat" maxlength="50"></label></div>
       <label class="field" style="margin-top:12px">Situations (CEPs), one per line. Think when, where, with whom, why and how it feels
-        <textarea id="sit" rows="5" spellcheck="false"></textarea></label>
+        <textarea autocomplete="off" id="sit" rows="5" spellcheck="false"></textarea></label>
       <div class="actions"><button id="gen" type="button">Make the questions</button><button id="copyq" type="button">Copy questions</button><span id="copied2" class="hint" style="margin-left:4px"></span></div>
       <label class="field" style="margin-top:12px">Questions to ask
-        <textarea id="qs" rows="5" readonly spellcheck="false"></textarea></label>
+        <textarea autocomplete="off" id="qs" rows="5" readonly spellcheck="false"></textarea></label>
       <p class="hint">Use the same brand list for every question, include the brands your buyers really consider, and show the questions in a random order.</p>
     </section>
 
     <section class="panel">
       <h2>2. Paste the answers</h2>
       <label class="field">One row per link a person made: <code>respondent,cep,brand</code>
-        <textarea id="data" rows="10" spellcheck="false" style="font-family: ui-monospace, Menlo, monospace; font-size: .85rem"></textarea></label>
+        <textarea autocomplete="off" id="data" rows="10" spellcheck="false" style="font-family: ui-monospace, Menlo, monospace; font-size: .85rem"></textarea></label>
       <div class="inputs tight" style="margin-top:12px">
-        <label class="field">Your brand (as written in the data)<input type="text" id="you"></label>
-        <label class="field">People surveyed in total<input type="number" id="nn" min="1" step="1" inputmode="numeric" placeholder="blank = people in the data"></label>
-        <label class="field">Confidence<select id="c"><option value="90">90%</option><option value="95" selected>95%</option></select></label>
+        <label class="field">Your brand (as written in the data)<input autocomplete="off" type="text" id="you"></label>
+        <label class="field">People surveyed in total<input autocomplete="off" type="number" id="nn" min="1" step="1" inputmode="numeric" placeholder="blank = people in the data"></label>
+        <label class="field">Confidence<select autocomplete="off" id="c"><option value="90">90%</option><option value="95" selected>95%</option></select></label>
       </div>
       <div class="actions"><button id="sample" type="button">Load the made-up sample</button><span class="hint" style="margin-left:4px">The sample is invented. Do not read anything into it.</span></div>
       <p class="hint">People who linked no brand to any situation do not appear in the rows, so enter the true number surveyed above. If you leave it blank, the tool assumes everyone linked at least one brand, which flatters every brand's penetration.</p>
@@ -217,6 +225,7 @@
       <p><b>The situation list is your assumption.</b> A missing situation is invisible. Build the list from real buyer language first.</p>
     </section>
 
+    <section class="next-step"><div class="k">next</div><a href="https://distinctive-asset-grid.benjads.com/">distinctive asset grid</a><p>Which of your assets do buyers link to you?</p></section>
     <footer class="site-foot">
       <picture><source media="(prefers-color-scheme: dark)" srcset="logo/benjads-footnote-paper-transparent.svg"><img src="logo/benjads-footnote-olive-transparent.svg" alt="ben.j.ads"></picture>
       <p><span class="tag">1</span>Mental availability and category entry points: Romaniuk and Sharp. A proxy built from survey links. Marketing science, given away free, for people who spend money.</p>
